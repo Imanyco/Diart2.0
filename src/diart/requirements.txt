@@ -1,4 +1,4 @@
-ffmpeg>=4.0.2
+ffmpeg>=4.2.2
 flask>=2.2.2
 flask_cors>=3.0.10
 numpy>=1.20.2
