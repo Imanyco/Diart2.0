@@ -13,6 +13,5 @@ pyannote.audio>=2.1.1
 pyannote.core>=4.5
 pyannote.database>=4.1.1
 pyannote.metrics>=3.2
-threading>=3.11.0
 optuna>=2.10
 websockets>=10.3
