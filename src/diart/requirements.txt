@@ -10,6 +10,7 @@ tqdm>=4.64.0
 torch>=1.12.1
 torchaudio>=0.12.1,<1.0
 pandas>=1.0.0
+portaudio>=0.0.0
 pyannote.audio>=1.0.0
 pyannote.core>=4.5
 pyannote.database>=4.1.1
