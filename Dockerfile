@@ -1,18 +1,31 @@
-FROM continuumio/miniconda3
+FROM continuumio/miniconda3:latest
 
-COPY . /app
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Set the working directory
 WORKDIR /app
 
-RUN conda create --name myenv python=3.8
-RUN echo "source activate myenv" > ~/.bashrc
-ENV PATH /opt/conda/envs/myenv/bin:$PATH
-RUN pip install flask_cors
-RUN conda install -y numpy scipy pandas
-RUN conda install portaudio
+# Copy the environment file
+COPY environment.yml .
+
+# Create the environment
+RUN conda install flask flask_cors 
+RUN pip install diart
+RUN conda install portaudio ffmpeg
 RUN conda install pysoundfile -c conda-forge
-RUN conda install ffmpeg
-RUN pip install diart flask
-RUN cd /src
-RUN cd /diart
+RUN conda env create -f environment.yml
+
+# Make RUN commands use the new environment
+SHELL ["conda", "run", "-n", "myapp", "/bin/bash", "-c"]
+
+# Copy the rest of the app
+COPY . .
+
+# Expose the port
 EXPOSE 5000
+
+# Run the app
 CMD ["python", "app.py", "microphone"]
+
