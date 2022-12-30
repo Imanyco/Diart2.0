@@ -2,7 +2,6 @@ import os
 import time
 from flask import Flask, Response
 from flask_cors import CORS
-from diart.blocks.utils import Speaker
 
 app = Flask(__name__)
 CORS(app)
