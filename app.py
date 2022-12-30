@@ -18,7 +18,7 @@ from diart.models import SegmentationModel, EmbeddingModel
 import os
 # from diart.sinks import RTTMWriter
 
-
+# create app instance
 app = Flask(__name__)
 os.environ['FLASK_ENV'] = 'production'
 CORS(app)
