@@ -12,7 +12,7 @@ from diart import utils
 from threading import Thread
 import diart.sinks as sinks
 from diart.blocks import OnlineSpeakerDiarization, PipelineConfig, Binarize
-from diart.blocks.utils import Speaker
+from src.diart.blocks.utils import Speaker
 from diart.inference import RealTimeInference
 from diart.models import SegmentationModel, EmbeddingModel
 import os
