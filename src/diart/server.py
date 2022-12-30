@@ -11,11 +11,11 @@ CORS(app)
 def stream():
 
     def get_data():
-        speaker_data = Speaker()
+        
         while True:
             #gotcha
             time.sleep(1)
-            yield f'data: {speaker_data()}  \n\n'
+            yield f'data: hello  \n\n'
     
     return Response(get_data(), mimetype='text/event-stream')
 
