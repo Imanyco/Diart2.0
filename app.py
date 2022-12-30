@@ -86,7 +86,7 @@ def stream():
     return speaker_object()
             
 if __name__ == "__main__":
-    b = Thread(target= app.run)
+    b = Thread(target= app.run(host='157.230.180.11'))
     a = Thread(target=runDiart)
     a.start()
     b.start()
