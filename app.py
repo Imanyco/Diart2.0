@@ -87,6 +87,6 @@ def stream():
             
 if __name__ == "__main__":
     b = Thread(target= app.run(host='157.230.180.11'))
-    a = Thread(target=runDiart)
+    a = Thread(target=runDiart(host='157.230.180.11'))
     a.start()
     b.start()
