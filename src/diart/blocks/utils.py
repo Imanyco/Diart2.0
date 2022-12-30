@@ -64,7 +64,7 @@ class Binarize:
 
                 speakerArray.update(speaker_data)
 
-        return annotation
+        return speakerArray
 
 class Speaker:
     def __init__(self):
