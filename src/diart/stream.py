@@ -15,9 +15,12 @@ from diart.blocks import OnlineSpeakerDiarization, PipelineConfig, Binarize
 from diart.blocks.utils import Speaker
 from diart.inference import RealTimeInference
 from diart.models import SegmentationModel, EmbeddingModel
+import os
 # from diart.sinks import RTTMWriter
 
+# create app instance
 app = Flask(__name__)
+os.environ['FLASK_ENV'] = 'production'
 CORS(app)
 
 def runDiart():
@@ -83,7 +86,6 @@ def stream():
     return speaker_object()
             
 if __name__ == "__main__":
-    b = Thread(target= app.run)
-    a = Thread(target=runDiart)
-    a.start()
-    b.start()
+    thread = Thread(target=runDiart)
+    thread.start()
+    app.run()
