@@ -12,7 +12,7 @@ from diart import utils
 from threading import Thread
 import diart.sinks as sinks
 from diart.blocks import OnlineSpeakerDiarization, PipelineConfig, Binarize
-from src.diart.blocks.utils import Speaker
+from diart.blocks.utils import Speaker
 from diart.inference import RealTimeInference
 from diart.models import SegmentationModel, EmbeddingModel
 import os
@@ -86,7 +86,6 @@ def stream():
     return speaker_object()
             
 if __name__ == "__main__":
-    b = Thread(target= app.run(host='157.230.180.11'))
-    a = Thread(target=runDiart())
-    a.start()
-    b.start()
+    thread = Thread(target=runDiart)
+    thread.start()
+    app.run()
