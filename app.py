@@ -83,9 +83,7 @@ def runDiart():
 @app.route('/stream')
 def stream():
     speaker_object = Speaker()
-    return speaker_object()
+    print(f'{speaker_object()}')
             
 if __name__ == "__main__":
-    thread = Thread(target=runDiart)
-    thread.start()
-    app.run()
+    runDiart()
