@@ -79,6 +79,7 @@ def runDiart():
         leave_progress_bar=True,
     )
     inference()
+    print(inference.accumulator.get_prediction())
 
 @app.route('/stream')
 def stream():
